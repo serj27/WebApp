@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/dataSources.local.xml
+.idea/workspace.xml
+src/main/java/Hibernate/DataUser.java
+src/test/
+target/
+webapp/WEB-INF/jsp/
