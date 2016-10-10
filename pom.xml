@@ -30,11 +30,6 @@
             <version>${spring.mvc}</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.mvc}</version>
-        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
