@@ -1,8 +1,8 @@
 package DAO;
 
+import DTO.Entity;
 import DTO.UserDTO;
 import Hibernate.DataUser;
-import DTO.Entity;
 
 import java.util.List;
 
