@@ -1,11 +1,13 @@
 package Model;
 
+import DTO.Entity;
+
 import java.time.LocalDate;
 
 /**
  * Created by serjd on 06.10.2016.
  */
-public class User extends Entity<Integer>{
+public class User extends Entity<Integer> {
 
     private String firstName;
     private String secondName;

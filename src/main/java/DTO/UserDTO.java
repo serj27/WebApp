@@ -1,7 +1,5 @@
 package DTO;
 
-import Model.Entity;
-
 import java.time.LocalDate;
 
 /**

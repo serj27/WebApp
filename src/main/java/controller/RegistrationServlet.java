@@ -30,7 +30,7 @@ public class RegistrationServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         try {
-            UserServiceImpl.getInstance().saveUser(new UserDTO(firstName, secondName, birthday, email, password));
+            UserServiceImpl.getInstance().addUser(new UserDTO(firstName, secondName, birthday, email, password));
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }

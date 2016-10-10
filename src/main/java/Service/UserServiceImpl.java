@@ -3,16 +3,22 @@ package Service;
 import DAO.Dao;
 import DAO.DaoFactory;
 import DTO.UserDTO;
+import Hibernate.DataUser;
 import Model.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 /**
  * Created by serjd on 06.10.2016.
  */
-public class UserServiceImpl implements Service<Integer, UserDTO> {
+@org.springframework.stereotype.Service
+public class UserServiceImpl implements Service {
 
     private static UserServiceImpl service;
+    @Autowired
     private Dao<Integer, User> userDao;
 
     private UserServiceImpl() throws NoSuchAlgorithmException {
@@ -26,23 +32,34 @@ public class UserServiceImpl implements Service<Integer, UserDTO> {
         return service;
     }
 
-
-    public void saveUser(Integer key) {
-
+    @Transactional
+    public List<User> getUser() {
+        return userDao.getUsers();
     }
 
+    @Transactional
+    public void addUser(DataUser dataUser) {
+    userDao.addUser(dataUser);
+    }
+    @Transactional
     public void deleteUser(Integer key) {
-
+    userDao.deleteUser(key);
     }
 
-    public User getUser(String email) {
-        User user = new User();
-        user.setEmail(email);
+    public DataUser getUserByEmail(String email) {
+        DataUser dataUser = new DataUser();
+        dataUser.setEmail(email);
 
-        return user;
+        return dataUser;
     }
 
-    public void saveUser(UserDTO userDTO) {
-
+    public DataUser getById(Integer id) {
+        return userDao.getUserById(id);
     }
+    @Transactional
+    public void addUser(UserDTO userDTO) {
+        userDao.addUser(userDTO);
+    }
+
+
 }

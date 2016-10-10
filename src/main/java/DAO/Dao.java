@@ -1,7 +1,8 @@
 package DAO;
 
+import DTO.UserDTO;
 import Hibernate.DataUser;
-import Model.Entity;
+import DTO.Entity;
 
 import java.util.List;
 
@@ -10,9 +11,10 @@ import java.util.List;
  */
 public interface Dao<K,T extends Entity<K>>  {
 
-    public List<T> getUser();
-    public void addUser(DataUser user);
+    public List<T> getUsers();
+    public void addUser(DataUser dataUser);
     public void deleteUser (Integer key);
-    public DataUser getUserbyId (Integer id);
+    public DataUser getUserById (Integer id);
     public DataUser getUserByEmail (String email);
+    void addUser(UserDTO userDTO);
 }

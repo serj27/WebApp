@@ -1,6 +1,8 @@
 package DAO;
 
+import DTO.UserDTO;
 import Hibernate.DataUser;
+import Model.User;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -25,6 +27,10 @@ public class UserDaoImpl implements Dao {
         return sessionFactory.getCurrentSession().createCriteria(DataUser.class).list();
     }
 
+    public List<User> getUsers() {
+        return sessionFactory.getCurrentSession().createCriteria(User.class).list();
+    }
+
     public void addUser(DataUser user) {
         sessionFactory.getCurrentSession().save(user);
 
@@ -37,6 +43,10 @@ public class UserDaoImpl implements Dao {
         if(null != user) {
             sessionFactory.getCurrentSession().delete(user);
         }
+    }
+
+    public DataUser getUserById(Integer id) {
+        return (DataUser)sessionFactory.getCurrentSession().get(DataUser.class, id);
     }
 
     public DataUser getUserbyId(Integer id) {
@@ -52,5 +62,9 @@ public class UserDaoImpl implements Dao {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public void addUser(UserDTO userDTO) {
+        sessionFactory.getCurrentSession().save(userDTO);
     }
 }

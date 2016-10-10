@@ -5,4 +5,4 @@
 src/main/java/Hibernate/DataUser.java
 src/test/
 target/
-webapp/WEB-INF/jsp/
+webapp/pages/jsp/
